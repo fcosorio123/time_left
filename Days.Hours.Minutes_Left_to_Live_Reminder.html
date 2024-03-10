@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reminder - Time on Earth</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 21px;
+            padding: 21px;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+        }
+        .progress-container {
+            width: 100%;
+            background-color: #ddd;
+        }
+        .progress-bar {
+            width: 1%;
+            height: 30px;
+            background-color: #4CAF50;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Amount of Time Left on Earth</h1>
+    <div class="container">
+        <label for="birthDate">Enter your date of birth:</label>
+        <input type="date" id="birthDate" required>
+        <label for="estimatedAge">Enter your estimated lifespan in years:</label>
+        <input type="number" id="estimatedAge" required>
+        <button onclick="startTimer()">Start</button>
+    </div>
+    <h2 id="timeLeft"></h2>
+    <div class="progress-container">
+        <div id="progressBar" class="progress-bar">0%</div>
+    </div>
+
+    <script>
+        let timer = null;
+
+        function calculateRemainingTime() {
+            const birthDate = new Date(document.getElementById('birthDate').value);
+            const estimatedLifespan = parseInt(document.getElementById('estimatedAge').value, 10);
+            const endDate = new Date(birthDate.getFullYear() + estimatedLifespan, birthDate.getMonth(), birthDate.getDate());
+            const now = new Date();
+            const totalLifespanMs = endDate - birthDate;
+            const timeElapsedMs = now - birthDate;
+            const timeLeftMs = endDate - now;
+
+            const progressPercentage = (timeElapsedMs / totalLifespanMs) * 100;
+
+            if (timeLeftMs > 0) {
+                const daysLeft = Math.floor(timeLeftMs / (1000 * 60 * 60 * 24));
+                const hoursLeft = Math.floor(timeLeftMs / (1000 * 60 * 60)) % 24;
+                const minutesLeft = Math.floor(timeLeftMs / (1000 * 60)) % 60;
+                const secondsLeft = Math.floor(timeLeftMs / 1000) % 60;
+
+                const totalHoursLeft = daysLeft * 24 + hoursLeft;
+                const totalMinutesLeft = totalHoursLeft * 60 + minutesLeft;
+                const totalSecondsLeft = totalMinutesLeft * 60 + secondsLeft;
+
+                document.getElementById('timeLeft').innerHTML = `Time Left on Earth: ${daysLeft} days (${totalHoursLeft} hours, ${totalMinutesLeft} minutes, ${totalSecondsLeft} seconds)`;
+                document.getElementById('progressBar').style.width = `${progressPercentage}%`;
+                document.getElementById('progressBar').innerHTML = `${progressPercentage.toFixed(2)}%`;
+            } else {
+                clearInterval(timer); // Stop the timer if the time left is not valid
+                document.getElementById('timeLeft').innerHTML = "The specified age has been reached.";
+                document.getElementById('progressBar').style.width = `100%`;
+                document.getElementById('progressBar').innerHTML = `100%`;
+            }
+        }
+
+        function startTimer() {
+            clearInterval(timer); // Clear any existing timer
+            calculateRemainingTime(); // Update countdown immediately
+            timer = setInterval(calculateRemainingTime, 1000); // Update every second
+        }
+    </script>
+</body>
+</html>
