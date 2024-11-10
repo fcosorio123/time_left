@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favio's Elf Assistant</title>
+    
+    <!-- Meta Description for SEO -->
+    <meta name="description" content="Interact with Favio's Elf Assistant to learn what he wants for Christmas while keeping the surprise element intact.">
+    
+    <!-- Google Fonts for Enhanced Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    
+    <!-- Favicon (Optional) -->
+    <link rel="icon" href="https://example.com/favicon.ico" type="image/x-icon">
+
+    <style>
+        /* Reset Default Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body Styling with Gradient Background */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            padding: 20px;
+        }
+
+        /* Main Container for Content */
+        .main-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(8.5px);
+            -webkit-backdrop-filter: blur(8.5px);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Title Styling */
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* Description Texts */
+        .description {
+            font-size: 1em;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #555;
+            text-align: center;
+        }
+
+        .description strong {
+            color: #333;
+        }
+
+        /* Chatbot Container Styling */
+        .chatbot-container {
+            margin: 0 auto 30px auto;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Links Container Styling */
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        /* Button Styling */
+        .link-button {
+            padding: 15px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
+            color: #fff;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        /* Primary Button Styling */
+        .link-button.primary {
+            background-color: #007BFF; /* Blue */
+        }
+
+        .link-button.primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            background-color: #0056b3;
+        }
+
+        /* Secondary Button Styling */
+        .link-button.secondary {
+            background-color: #28A745; /* Green */
+        }
+
+        .link-button.secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            background-color: #1e7e34;
+        }
+
+        /* Feedback Button Styling */
+        .feedback-button {
+            background-color: #17a2b8; /* Teal */
+            color: #fff;
+            border: none;
+        }
+
+        .feedback-button:hover {
+            background-color: #117a8b;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .main-container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .link-button, .feedback-button {
+                font-size: 14px;
+                padding: 12px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <!-- Page Title -->
+        <h1>Favio's Elf Assistant</h1>
+
+        <!-- Description Texts -->
+        <p class="description">
+            <strong>Wtf is this?</strong><br>
+            Elf Assistant was created to help you pick something Favio will love, all while preserving the element of surprise. It’s designed to make this process smoother and take the guesswork out of finding a gift he’ll enjoy.
+        </p>
+        <p class="description">
+            <strong>How tf do I use this?</strong><br>
+            Interact with the chatbot below. This is Favio's Elf Assistant.
+        </p>
+
+        <!-- Chatbot Integration -->
+        <div class="chatbot-container">
+            <script>
+                window.embeddedChatbotConfig = {
+                    chatbotId: "bE8DpBoRDq3JzXzT562i3",
+                    domain: "www.chatbase.co"
+                }
+            </script>
+            <script
+                src="https://www.chatbase.co/embed.min.js"
+                chatbotId="bE8DpBoRDq3JzXzT562i3"
+                domain="www.chatbase.co"
+                defer>
+            </script>
+        </div>
+
+        <!-- Links and Buttons -->
+        <div class="links-container">
+            <button 
+                class="link-button primary" 
+                onclick="window.open('https://form.typeform.com/to/MvKDLKB0', '_blank')">
+                Got him anything? Let him know!
+            </button>
+            <button 
+                class="link-button secondary" 
+                onclick="window.open('https://form.typeform.com/to/MvKDLKB0', '_blank')">
+                Want to have your own Elf Assistant? Click here!
+            </button>
+            <button 
+                class="link-button feedback-button" 
+                onclick="window.open('https://form.typeform.com/to/MvKDLKB0', '_blank')">
+                Feedback?
+            </button>
+        </div>
+    </div>
+
+</body>
+</html>
